@@ -1,0 +1,268 @@
+/*!
+ * Font Mfizz 2.3.0-SNAPSHOT
+ * Copyright 2013-2016 Fizzed, Inc.
+ * MIT License
+ *
+ * Project: http://fizzed.com/oss/font-mfizz
+ *
+ * The font designed for technology and software geeks representing programming
+ * languages, operating systems, software engineering, and technology.
+ *
+ * Fizzed, Inc.
+ * Web: http://fizzed.com/
+ * Twitter: http://twitter.com/fizzed_inc
+ */
+
+@font-face {
+  font-family: "FontMfizz";
+  src: url("../fonts/font-mfizz.eot");
+  src: url("../fonts/font-mfizz.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/font-mfizz.woff") format("woff"),
+       url("../fonts/font-mfizz.ttf") format("truetype"),
+       url("../fonts/font-mfizz.svg#font-mfizz") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "FontMfizz";
+    src: url("../fonts/font-mfizz.svg#font-mfizz") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.fa-3dprint:before,
+.fa-angular:before,
+.fa-antenna:before,
+.fa-apache:before,
+.fa-archlinux:before,
+.fa-aws:before,
+.fa-blackberry:before,
+.fa-bomb:before,
+.fa-c:before,
+.fa-cassandra:before,
+.fa-centos:before,
+.fa-clojure:before,
+.fa-coffee-bean:before,
+.fa-cplusplus:before,
+.fa-csharp:before,
+.fa-css:before,
+.fa-database:before,
+.fa-database-alt:before,
+.fa-database-alt2:before,
+.fa-debian:before,
+.fa-docker:before,
+.fa-dreamhost:before,
+.fa-elixir:before,
+.fa-erlang:before,
+.fa-exherbo:before,
+.fa-fedora:before,
+.fa-fire-alt:before,
+.fa-freebsd:before,
+.fa-gentoo:before,
+.fa-ghost:before,
+.fa-git:before,
+.fa-gnome:before,
+.fa-google:before,
+.fa-google-alt:before,
+.fa-google-code:before,
+.fa-google-developers:before,
+.fa-gradle:before,
+.fa-grails:before,
+.fa-grails-alt:before,
+.fa-grunt:before,
+.fa-hadoop:before,
+.fa-haskell:before,
+.fa-heroku:before,
+.fa-html:before,
+.fa-iphone:before,
+.fa-java:before,
+.fa-java-bold:before,
+.fa-java-duke:before,
+.fa-javascript:before,
+.fa-javascript-alt:before,
+.fa-jetty:before,
+.fa-kde:before,
+.fa-laravel:before,
+.fa-line-graph:before,
+.fa-linux-mint:before,
+.fa-looking:before,
+.fa-mariadb:before,
+.fa-maven:before,
+.fa-microscope:before,
+.fa-mobile-device:before,
+.fa-mobile-phone-alt:before,
+.fa-mobile-phone-broadcast:before,
+.fa-mongodb:before,
+.fa-mssql:before,
+.fa-mysql:before,
+.fa-mysql-alt:before,
+.fa-netbsd:before,
+.fa-nginx:before,
+.fa-nginx-alt:before,
+.fa-nginx-alt2:before,
+.fa-nodejs:before,
+.fa-objc:before,
+.fa-oracle:before,
+.fa-oracle-alt:before,
+.fa-osx:before,
+.fa-perl:before,
+.fa-phone-alt:before,
+.fa-phone-gap:before,
+.fa-phone-retro:before,
+.fa-php:before,
+.fa-php-alt:before,
+.fa-playframework:before,
+.fa-playframework-alt:before,
+.fa-plone:before,
+.fa-postgres:before,
+.fa-postgres-alt:before,
+.fa-python:before,
+.fa-raspberrypi:before,
+.fa-redhat:before,
+.fa-redis:before,
+.fa-ruby:before,
+.fa-ruby-on-rails:before,
+.fa-ruby-on-rails-alt:before,
+.fa-satellite:before,
+.fa-scala:before,
+.fa-scala-alt:before,
+.fa-script:before,
+.fa-script-alt:before,
+.fa-shell:before,
+.fa-solaris:before,
+.fa-splatter:before,
+.fa-spring:before,
+.fa-suse:before,
+.fa-svg:before,
+.fa-symfony:before,
+.fa-tomcat:before,
+.fa-ubuntu:before,
+.fa-wireless:before,
+.fa-wordpress:before {
+  display: inline-block;
+  font-family: "FontMfizz";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.fa-3dprint:before { content: "\f100"; }
+.fa-angular:before { content: "\f101"; }
+.fa-antenna:before { content: "\f102"; }
+.fa-apache:before { content: "\f103"; }
+.fa-archlinux:before { content: "\f104"; }
+.fa-aws:before { content: "\f105"; }
+.fa-blackberry:before { content: "\f106"; }
+.fa-bomb:before { content: "\f107"; }
+.fa-c:before { content: "\f108"; }
+.fa-cassandra:before { content: "\f109"; }
+.fa-centos:before { content: "\f10a"; }
+.fa-clojure:before { content: "\f10b"; }
+.fa-coffee-bean:before { content: "\f10c"; }
+.fa-cplusplus:before { content: "\f10d"; }
+.fa-csharp:before { content: "\f10e"; }
+.fa-css:before { content: "\f10f"; }
+.fa-database:before { content: "\f110"; }
+.fa-database-alt:before { content: "\f111"; }
+.fa-database-alt2:before { content: "\f112"; }
+.fa-debian:before { content: "\f113"; }
+.fa-docker:before { content: "\f114"; }
+.fa-dreamhost:before { content: "\f115"; }
+.fa-elixir:before { content: "\f116"; }
+.fa-erlang:before { content: "\f117"; }
+.fa-exherbo:before { content: "\f118"; }
+.fa-fedora:before { content: "\f119"; }
+.fa-fire-alt:before { content: "\f11a"; }
+.fa-freebsd:before { content: "\f11b"; }
+.fa-gentoo:before { content: "\f11c"; }
+.fa-ghost:before { content: "\f11d"; }
+.fa-git:before { content: "\f11e"; }
+.fa-gnome:before { content: "\f11f"; }
+.fa-google:before { content: "\f120"; }
+.fa-google-alt:before { content: "\f121"; }
+.fa-google-code:before { content: "\f122"; }
+.fa-google-developers:before { content: "\f123"; }
+.fa-gradle:before { content: "\f124"; }
+.fa-grails:before { content: "\f125"; }
+.fa-grails-alt:before { content: "\f126"; }
+.fa-grunt:before { content: "\f127"; }
+.fa-hadoop:before { content: "\f128"; }
+.fa-haskell:before { content: "\f129"; }
+.fa-heroku:before { content: "\f12a"; }
+.fa-html:before { content: "\f12b"; }
+.fa-iphone:before { content: "\f12c"; }
+.fa-java:before { content: "\f12d"; }
+.fa-java-bold:before { content: "\f12e"; }
+.fa-java-duke:before { content: "\f12f"; }
+.fa-javascript:before { content: "\f130"; }
+.fa-javascript-alt:before { content: "\f131"; }
+.fa-jetty:before { content: "\f132"; }
+.fa-kde:before { content: "\f133"; }
+.fa-laravel:before { content: "\f134"; }
+.fa-line-graph:before { content: "\f135"; }
+.fa-linux-mint:before { content: "\f136"; }
+.fa-looking:before { content: "\f137"; }
+.fa-mariadb:before { content: "\f138"; }
+.fa-maven:before { content: "\f139"; }
+.fa-microscope:before { content: "\f13a"; }
+.fa-mobile-device:before { content: "\f13b"; }
+.fa-mobile-phone-alt:before { content: "\f13c"; }
+.fa-mobile-phone-broadcast:before { content: "\f13d"; }
+.fa-mongodb:before { content: "\f13e"; }
+.fa-mssql:before { content: "\f13f"; }
+.fa-mysql:before { content: "\f140"; }
+.fa-mysql-alt:before { content: "\f141"; }
+.fa-netbsd:before { content: "\f142"; }
+.fa-nginx:before { content: "\f143"; }
+.fa-nginx-alt:before { content: "\f144"; }
+.fa-nginx-alt2:before { content: "\f145"; }
+.fa-nodejs:before { content: "\f146"; }
+.fa-objc:before { content: "\f147"; }
+.fa-oracle:before { content: "\f148"; }
+.fa-oracle-alt:before { content: "\f149"; }
+.fa-osx:before { content: "\f14a"; }
+.fa-perl:before { content: "\f14b"; }
+.fa-phone-alt:before { content: "\f14c"; }
+.fa-phone-gap:before { content: "\f14d"; }
+.fa-phone-retro:before { content: "\f14e"; }
+.fa-php:before { content: "\f14f"; }
+.fa-php-alt:before { content: "\f150"; }
+.fa-playframework:before { content: "\f151"; }
+.fa-playframework-alt:before { content: "\f152"; }
+.fa-plone:before { content: "\f153"; }
+.fa-postgres:before { content: "\f154"; }
+.fa-postgres-alt:before { content: "\f155"; }
+.fa-python:before { content: "\f156"; }
+.fa-raspberrypi:before { content: "\f157"; }
+.fa-redhat:before { content: "\f158"; }
+.fa-redis:before { content: "\f159"; }
+.fa-ruby:before { content: "\f15a"; }
+.fa-ruby-on-rails:before { content: "\f15b"; }
+.fa-ruby-on-rails-alt:before { content: "\f15c"; }
+.fa-satellite:before { content: "\f15d"; }
+.fa-scala:before { content: "\f15e"; }
+.fa-scala-alt:before { content: "\f15f"; }
+.fa-script:before { content: "\f160"; }
+.fa-script-alt:before { content: "\f161"; }
+.fa-shell:before { content: "\f162"; }
+.fa-solaris:before { content: "\f163"; }
+.fa-splatter:before { content: "\f164"; }
+.fa-spring:before { content: "\f165"; }
+.fa-suse:before { content: "\f166"; }
+.fa-svg:before { content: "\f167"; }
+.fa-symfony:before { content: "\f168"; }
+.fa-tomcat:before { content: "\f169"; }
+.fa-ubuntu:before { content: "\f16a"; }
+.fa-wireless:before { content: "\f16b"; }
+.fa-wordpress:before { content: "\f16c"; }

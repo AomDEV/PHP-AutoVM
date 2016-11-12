@@ -1,0 +1,10 @@
+/.nyc_output/
+/bower_components/
+/dist/
+
+npm-debug.log
+npm-debug.log.*
+
+!node_modules/*
+node_modules/*/
+/plot.dat

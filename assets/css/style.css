@@ -1,0 +1,34 @@
+.chat-other{
+  border-radius:5px;
+  background-color:#EAE7FF;
+  border:1px solid #6435C9;
+  color:#6435C9;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  max-width:70%;
+  word-wrap: break-word;
+  min-height:40px;
+  vertical-align: middle;
+  margin-bottom:10px;
+}
+.chat-me{
+  border-radius:5px;
+  background-color:#E1F7F7;
+  border:1px solid #10A3A3;
+  color:#10A3A3;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  max-width:70%;
+  word-wrap: break-word;
+  min-height:40px;
+  vertical-align: middle;
+  margin-bottom:10px;
+}
+.read-chat{
+  margin-top:-5px;
+  padding-top:-5px;
+}

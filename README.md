@@ -3,6 +3,7 @@
 ## PROJECT INFO
 >
 > PROJECT TYPE : **FREETIME**
+>
 > PROJECT COST : **6,000THB**
 >
 

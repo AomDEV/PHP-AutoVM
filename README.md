@@ -1,5 +1,11 @@
 # (PHP) Auto Virtual Machine
 
+## PROJECT INFO
+>
+> PROJECT TYPE : **FREETIME**
+> PROJECT COST : **6,000THB**
+>
+
 ## DEVELOPER MESSAGE
 > This project is not complete. I'm not sure that work, You can download it and modify/edit my source-code, If you can make it complete please share it to me (siriwat576@gmail.com)
 

@@ -1,6 +1,6 @@
 <?php
 $firstVersion=$versionList['os-'.$defaultOS]['id'];
-for($i=1;$i<count($osList);$i++){
+for($i=0;$i<count($osList);$i++){
   if(isset($osIDList[$i])){
     $thisOSId = $osIDList[$i];
     if($thisOSId==$defaultOS){$styleShow = "display:block;";} else{$styleShow = "display:none;";}

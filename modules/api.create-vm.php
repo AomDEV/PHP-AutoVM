@@ -13,7 +13,6 @@ use aomFramework\api;
 use aomFramework\form;
 use Xen\xen;
 
-$_TESTMODE = false;
 $_SAVE_ADMIN_USER_LOG = false;
 
 $formApi = new api();
@@ -45,7 +44,7 @@ if($checkAPI==true){
       $xen = new xen($config["xen_ip"],$config["xen_user"],$config["xen_pass"]);
       $cpu = $getPackage["vm_core"];
       $memory = $getPackage["vm_ram"];
-      $templateName = strtolower($getPackage["package_name"]).".{$getPackage["vm_disk"]}-{$getOS["os_code"]}{$os}";
+      $templateName = strtolower($getPackage["package_name"]).".{$getPackage["vm_disk"]}-{$getOS["os_code"]}.{$osv}";
       $createVM = $xen->createVM($templateName,$hostname,$cpu,$memory);
       if($createVM["status"]==false){
         $return = array("msg"=>$createVM["msg"],"status"=>false);
@@ -55,12 +54,12 @@ if($checkAPI==true){
         # Update user balance
         $packageBalance = $getPackage["vm_price"];
         $totalUserBalance = $getUserInfo["balance"]-$packageBalance;
-        if($_TESTMODE==false){
+        if($_MAINTENANCE_MODE==false){
           $updateBalace = $db->query("UPDATE account SET balance=? WHERE uid =?",array($totalUserBalance,$uid));
         }
 
         # Add to database
-        if($_TESTMODE==false){
+        if($_MAINTENANCE_MODE==false){
           $vmIP = "null";
           $transaction = $form->generateTXID();
           $expire_date = strtotime( date('Y-m-d H:i:s', strtotime( '+30 day', time() )) );
@@ -70,7 +69,7 @@ if($checkAPI==true){
         # Add to database
 
         # Insert log data
-        if($_TESTMODE==false){
+        if($_MAINTENANCE_MODE==false){
           if($_SAVE_ADMIN_USER_LOG==false and $_SESSION["user_info"]["uid"]==1){
             # Nothing
           } else{
@@ -83,8 +82,10 @@ if($checkAPI==true){
         }
 
         # Return value to client
-        $getNewVM = $db->select("vm")->find("hostname","=",$hostname)->execute()[0];
-        $return = array("msg"=>"Successful!","status"=>true,"vm_id"=>$getNewVM["vm_id"]);
+        if($_MAINTENANCE_MODE==false){
+          $getNewVM = $db->select("vm")->find("hostname","=",$hostname)->execute()[0];
+        } else{ $getNewVM = 0; }
+        $return = array("msg"=>"Successful!","status"=>true,"vm_id"=>$getNewVM["vm_id"],"template_name"=>$templateName,"os_id"=>$os,"os_version_id"=>$osv);
       }
       #===============
       # Create VM

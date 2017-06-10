@@ -5,7 +5,7 @@
   $osList = array();
   $os = $db->getRows("SELECT os_product,os_name,os_code,os_id FROM vm_os;",array());
   $i=0;
-  $defaultOS = "";
+  $defaultOS = 0;
   foreach($os as $io=>$o){ $os_name=$o["os_name"];$os_icon = ucfirst("{$o['os_product']}.png");
   if($io==0){$defaultOS = $o["os_id"];}
   $i++;

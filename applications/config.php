@@ -7,12 +7,14 @@ $config = array(
 "user"=>"root", //Database Username
 "pass"=>"MySQL", //Database Password
 "db_name"=>"autovm", //Database Name
-"xen_ip"=>"10.210.100.48", //XEN Server IP
+"xen_ip"=>"192.168.135.131", //XEN Server IP
 "xen_user"=>"root", //XEN Server User
 "xen_pass"=>"Lomer123", //XEN Server Pass
 "urlPath"=>"http://localhost/autovm", //URL Path
 
 );
+
+$_MAINTENANCE_MODE = FALSE;
 
 $_CREATE_SERVER_PAGE_TEMPLATE = "sbs.create.php";
 
@@ -31,8 +33,8 @@ $PayPalSuccessURL     = $config["urlPath"]."/?page=succeed&application=paypal&ti
 $PayPalWebLogo        = ''; //Your PayPal Website Logo
 $PayPalTaxAmount      = 3.00;
 
-$StartAtRegisterMoney = 0.00;
-
+$StartAtRegisterMoney = 0.00
+;
 
 // Email Configuration
 #######################################################################################
@@ -43,8 +45,8 @@ $SendMailToUserWhenRegistered = false;
 $EnableEmailConfirm   = false;
 # Closed function because It's very slow process!
 $EmailHost            = 'smtp.gmail.com'; # Set the hostname of the mail server
-$EmailUsername        = 'siriwat576@gmail.com'; # Email username
-$EmailPassword        = 'atm3907atm'; # Email password
+$EmailUsername        = 'xxx@gmail.com'; # Email username
+$EmailPassword        = 'xxx'; # Email password
 $EmailPort            = 587; # Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
 $EmailSecure          = 'tls'; # Set the encryption system to use - ssl (deprecated) or tls
 $EmailAuth            = true; # Whether to use SMTP authentication

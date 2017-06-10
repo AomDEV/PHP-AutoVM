@@ -82,6 +82,7 @@ $(document).ready(function(){
               $(".create_vm_form input,button").attr("disabled","disabled");$(".create_vm_form").addClass("disabled");
               $(".create_vm_form").slideUp(500);
               $("div[data-zone=alert]").show(100).addClass("compact").html('<div class="ui positive message icon"><i class="check icon"></i><div class="content"><div class="header">Create VM Successful!</div><p>Go to your <b>Dashboard</b> page to see now.</p></div></div>');
+              alert(JSON.stringify(data));
               setTimeout(function(){ window.location="./?page=install&vm="+data.vm_id; },3000);
             } else{
               $("div[data-zone=alert]").show(100).addClass("alert-danger").html("<i class='icon warning circle'></i> " + data.msg);
@@ -235,14 +236,14 @@ function checkingSetupVM(){
 
 function sbs_submit(is_next){
   var step = parseInt(getUrlParameter("step"));
-  var os = $("#os[name=os]").val();step++;
-  var osv = $("#osv[name=osv]").val();
+  var os = $("input[name=vm_info]#os").val();step++;
+  var osv = $("input[name=vm_info]#osv").val();
   var plan = $("#plan[name=plan]").val();
   var hostname = $("#hostname[name=hostname]").val();
   var next_step = getUrlParameter("step");
   if(is_next==true){next_step++;} else{next_step--;}
   var urlNextStep = "./?page=create&step="+next_step;
-  if(typeof os==="undefined"){os=$("#_os").val();} if(typeof osv==="undefined"){osv=$("#_osv").val();}
+  if(typeof os==="undefined"){os=$("#os").val();} if(typeof osv==="undefined"){osv=$("#osv").val();}
   $("form[name=next_step]").attr("action",urlNextStep);
   $("form[name=next_step]").append("<input type='hidden' name='os' value='"+os+"' />");
   $("form[name=next_step]").append("<input type='hidden' name='osv' value='"+osv+"' />");

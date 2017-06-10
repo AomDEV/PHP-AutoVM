@@ -282,8 +282,8 @@ class form implements formInterface{
     return $txid;
   }
   public function shortTXID($txid){
-    $regex = "/A(.*)O(.*)M".date("Y")."/i";
-    preg_match($regex,$txid,$match);
+    $regex = "/A(.*)\O(.*)\M2016/";
+    preg_match_all($regex, $txid, $match, PREG_SET_ORDER, 0);
     return "A".str_replace($match[0],"",$txid);
   }
   public function convertCurrencyToFloat($currency="฿1,399.01"){

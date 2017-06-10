@@ -8,7 +8,7 @@ $frontend->load("assets/js/jquery.maskMoney.min.js");
 $frontend->load("assets/js/dropdown.js");
 $frontend->load("assets/js/jquery.creditCardValidator.js");
 $frontend->load("assets/js/billing-payment.js");
-include('applications/AES.php');
+//include('applications/AES.php');
 
 $user = $db->select("account")->find("uid","=",$form->get_session($_SESSION,"uid"))->execute()[0];
 echo '<div class="ui header"><h2><i class="bookmark icon"></i> Billing <span class="pull-right text-muted" style="font-style:small-caps;">Balance <b>'.number_format($user["balance"],2).'</b> THB</span></h2></div><hr />';

@@ -25,8 +25,12 @@
 <form action="" method="post" name="next_step">
 </form>
 <!-- Store Data from last Step -->
-<input type="hidden" id="_os" value="<?=intval($_REQUEST["os"])?>" />
-<input type="hidden" id="_osv" value="<?=intval($_REQUEST["osv"])?>" />
+<?php
+$os_req = intval(filter_input(INPUT_GET, "os"));
+$osv_req = intval(filter_input(INPUT_GET, "osv"));
+if($os_req==0){$os_req=1;}
+if($osv_req==0){$osv_req=1;}
+?>
 <!-- Store data from last step -->
 <?php
 if(isset($_REQUEST["step"]) and is_numeric($_REQUEST["step"]) and $_REQUEST["step"]==1){
@@ -52,7 +56,7 @@ for($i=1;$i<=count($versionList);$i++){
   $jsVIO .= "'os-{$i}':[";
     $vioSQL = $db->getRows("SELECT osv_id FROM vm_os_version WHERE os_id=?",array($i));
     $numVIO = 1;
-    foreach($vioSQL as $vs){$numVIO++;$jsVIO.= '\''.$vs['osv_id'].'\'';if($numVIO==count($vioSQL)){$jsVIO.=",";}}
+    foreach($vioSQL as $vs){$numVIO++;$jsVIO.= "'".intval($vs['osv_id'])."'";if($numVIO==count($vioSQL)){$jsVIO.=",";}}
   $jsVIO.="]";
   if($i==count($versionList)){}else{$jsVIO.=",";}
 }
@@ -70,7 +74,7 @@ include("libraries/view/template/select-osv.php");
 } else if(isset($_REQUEST["step"]) and is_numeric($_REQUEST["step"]) and $_REQUEST["step"]==2 and isset($_REQUEST["os"]) and isset($_REQUEST["osv"]) and is_numeric($_REQUEST["os"]) and is_numeric($_REQUEST["osv"])){
 ?>
 <!-- Select Plan -->
-<form onsubmit="return false;" class="ui form create_vm_form segment basic compact">
+<form onsubmit="return false;" class="ui form create_vm_form segment basic ">
 <div>
 <div class="row">
 
@@ -85,7 +89,7 @@ $vmRAM = $package["vm_ram"];
 $vmDisk = $package["vm_disk"];
 $pricePerMonth = $package["vm_price"];
 $pricePerHour = $package["vm_price"]/30/24;
-if(($vmRAM/1024)<1){$subfixRam="MB";echo $vmRAM;} else{$subfixRam="GB";$vmRAM/=1024;}
+if(($vmRAM/1024)<1){$subfixRam="MB";} else{$subfixRam="GB";$vmRAM/=1024;}
 if(($vmDisk/1024)<1){$subfixStorage="MB";} else{$subfixStorage="GB";$vmDisk/=1024;}
 if($package["is_ssd"]==false){$hddText="HDD";} else{$hddText="SSD";}
 if($pno==0){$isActive="panel-primary";} else{$isActive="panel-default";}
@@ -93,14 +97,14 @@ if($pno==0){$isActive="panel-primary";} else{$isActive="panel-default";}
 
 <div class="col-md-4" align="center">
 
-<button type="button" class="thumbnail panel <?=$isActive?>" op="select_plan" data-plan="<?=$package["package_id"]?>" style="padding:0px">
-  <div class="panel-heading" align="center">
+<button type="button" class="thumbnail panel <?=$isActive?>" op="select_plan" data-plan="<?=$package["package_id"]?>" style="padding:0px;max-width:100%;">
+  <div class="panel-heading" align="center" style="margin-top:0px;">
     <h2><?=$package["package_name"]?></h2>
   </div>
-  <div class="panel-body" align="left" style="color:#000;">
+  <div class="panel-body" align="left" style="color:#000;font-size:12px;">
     <li><?=$package["vm_core"]?> CPU</li>
-    <li><?=$vmRAM." ".$subfixRam?> RAM</li>
-    <li><?=$vmDisk." ".$subfixStorage." ".$hddText?> Disk</li>
+    <li><?=round($vmRAM)." ".$subfixRam?> RAM</li>
+    <li><?=round($vmDisk)." ".$subfixStorage." ".$hddText?> Disk</li>
     <li>Support <b>24/7</b></li>
   </div>
   <div class="panel-footer" align="center" style="color:#000;">
@@ -119,22 +123,23 @@ if($pno==0){$isActive="panel-primary";} else{$isActive="panel-default";}
 </div> <!--Row-->
 </div> <!--container-->
 <input type="hidden" name="plan" id="plan" value="<?=$defaultPlan?>" />
-
+<input type="hidden" name="os" id="os" value="<?=filter_input(INPUT_POST, 'os')?>" />
+<input type="hidden" name="osv" id="osv" value="<?=filter_input(INPUT_POST, 'osv')?>" />
 <!-- Your Hostname -->
 <?php
 $random_hostname = $form->randomName(6,true).".".$_SERVER['SERVER_NAME'];
 ?>
-<div class="field">
+<div>
   <label><i class="tag icon"></i> Hostname</label>
-  <div class="ui input huge">
-    <input type="text" name="hostname" id="hostname" data-input="hostname" maxlength='30' required autocomplete="off" value="<?=$random_hostname?>" placeholder="Hostname" />
+  <div class="ui input huge fluid">
+    <input type="text" name="hostname" id="hostname" data-input="hostname" maxlength="30" required autocomplete="off" value="<?=$random_hostname?>" placeholder="Hostname" />
   </div>
 </div>
 <!-- Your Hostname -->
 </form>
 <!-- Select Plan -->
 <?php
-} else if(isset($_REQUEST["step"]) and is_numeric($_REQUEST["step"]) and $_REQUEST["step"]==3){
+} else if(isset($_REQUEST["step"]) and is_numeric($_REQUEST["step"]) and $_REQUEST["step"]==3 and isset($_REQUEST["plan"]) and isset($_REQUEST["os"]) and isset($_REQUEST["osv"])){
   $plan = intval($_REQUEST["plan"]);
   $osv = intval($_REQUEST["osv"]);
   $getPackage = $db->getRow("SELECT vm_price,package_name,vm_ram,vm_disk,is_ssd,vm_core FROM vm_package WHERE package_id=?",array( $plan ));
@@ -199,10 +204,10 @@ for($i=1;$i<=count($versionList);$i++){
 $jsVIO .= "}";
 print("<script>var versionList = {$jsValue};var version_in_os = {$jsVIO};var access_token = '".$_SESSION["user_info"]["access_token"]."';</script>");
 ?>
-  <input type='hidden' id='os' value='<?=intval($_REQUEST["os"])?>' />
-  <input type='hidden' id='osv' value='<?=intval($_REQUEST["osv"])?>' />
-  <input type='hidden' id='plan' value='<?=intval($_REQUEST["plan"])?>' />
-  <input type='text' id='hostname' value='<?=htmlentities($_REQUEST["hostname"])?>' />
+  <input type='hidden' id='os' name="vm_info" value='<?=intval($_REQUEST["os"])?>' />
+  <input type='hidden' id='osv' name="vm_info" value='<?=intval($_REQUEST["osv"])?>' />
+  <input type='hidden' id='plan' name="vm_info" value='<?=intval($_REQUEST["plan"])?>' />
+  <input type='text' id='hostname' name="vm_info" value='<?=htmlentities($_REQUEST["hostname"])?>' />
 </div>
 <?php
 } else {

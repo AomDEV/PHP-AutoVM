@@ -316,7 +316,7 @@ class xen {
       } else{
 
         #===============
-        $template = $templates[0];
+        $template = @$templates[0];
         $this->setVMID($template);
         $getTemplateID = $this->getVMID();
 
